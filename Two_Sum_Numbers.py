@@ -1,15 +1,12 @@
-arr=[2,7,7,2]
+arr=[2,7,7,2,8,1,1,8]
 target=9
-Empty_set=set()
+seen=set()
+pairs=[]
 for i in arr:
     diff=target-i
-    if i not in Empty_set:
-        print(diff,i)
-        Empty_set.add(diff)
-        Empty_set.add(i)
-
-
-    
-    
-    
-
+    if diff in seen:
+        pair=((min(diff,i),max(diff,i)))
+        if pair not in pairs:
+            pairs.append(pair)
+    seen.add(i)
+print(pairs)
